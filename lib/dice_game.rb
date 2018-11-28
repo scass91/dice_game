@@ -1,15 +1,7 @@
 class Dice
   def roll(number)
     roll_array = []
-    number.times do
-      roll_value = rand(1..6)
-      roll_array << roll_value
-    end
-    total = 0
-    roll_array.each do |roll|
-      new_total = total + roll
-      total = new_total
-    end
-    total
+    number.to_i.times { roll_array << rand(1..6) }
+    roll_array.inject(:+)
   end
 end
